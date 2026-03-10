@@ -5,8 +5,8 @@ description = "Personal portfolio CMS API built with FastAPI"
 requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.18.4",
+    "bcrypt>=5.0.0",
     "fastapi>=0.115.0",
-    "passlib[bcrypt]>=1.7.4",
     "psycopg2-binary>=2.9.11",
     "pydantic-settings>=2.13.1",
     "python-jose[cryptography]>=3.5.0",

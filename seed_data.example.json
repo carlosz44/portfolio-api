@@ -1,0 +1,34 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "change-me"
+  },
+  "projects": [
+    {
+      "title": "Example Project",
+      "description": "A sample project description.",
+      "link": "https://example.com",
+      "year": 2024,
+      "type": "project"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Python",
+      "start": "2024-01-01",
+      "end": null,
+      "type": "language"
+    }
+  ],
+  "work": [
+    {
+      "company": "Example Corp",
+      "role": "Developer",
+      "description": "Worked on various projects.",
+      "start": "2023-01-01",
+      "end": "2024-01-01",
+      "location": "Remote",
+      "tech_stack": "Python, FastAPI, PostgreSQL"
+    }
+  ]
+}
