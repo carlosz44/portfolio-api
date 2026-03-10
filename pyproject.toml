@@ -22,6 +22,9 @@ dev = [
     "ruff>=0.9.0",
 ]
 
+[project.scripts]
+app = "app.main:app"
+
 [tool.ruff]
 target-version = "py312"
 line-length = 100

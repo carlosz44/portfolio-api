@@ -108,6 +108,45 @@ docker compose exec api uv run alembic revision --autogenerate -m "description"
 docker compose exec api uv run alembic upgrade head
 ```
 
+## Deployment (Vercel)
+
+Vercel auto-detects the FastAPI app from `app/main.py` — no extra config needed.
+
+### 1. Create a Neon PostgreSQL database
+
+Go to [neon.tech](https://neon.tech) and create a new project. Copy the connection details.
+
+### 2. Set environment variables in Vercel
+
+In your Vercel project settings, add:
+
+| Variable | Value |
+|----------|-------|
+| `DB_USER` | Your Neon username |
+| `DB_PASSWORD` | Your Neon password |
+| `DB_HOST` | Your Neon host (e.g. `ep-xxx.us-east-2.aws.neon.tech`) |
+| `DB_PORT` | `5432` |
+| `DB_NAME` | Your database name |
+| `SECRET_KEY` | A random 32+ character string |
+| `CORS_ORIGINS` | `["https://yourdomain.com"]` |
+| `ENVIRONMENT` | `production` |
+
+### 3. Deploy
+
+Connect the GitHub repo to Vercel or use the CLI:
+
+```bash
+npx vercel deploy
+```
+
+### 4. Run migrations on production
+
+Connect to Neon and run migrations locally pointing to the production database:
+
+```bash
+DB_HOST=ep-xxx.us-east-2.aws.neon.tech DB_USER=... DB_PASSWORD=... DB_NAME=... uv run alembic upgrade head
+```
+
 ## Project Structure
 
 ```
