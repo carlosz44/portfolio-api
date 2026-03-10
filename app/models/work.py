@@ -1,5 +1,5 @@
 import uuid
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 
 from sqlmodel import Field, SQLModel
 
@@ -13,5 +13,5 @@ class Work(SQLModel, table=True):
     end: date | None = None
     location: str = Field(max_length=200)
     tech_stack: str = Field(default="", max_length=500)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))

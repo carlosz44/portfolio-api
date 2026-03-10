@@ -1,5 +1,5 @@
 import uuid
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from enum import Enum
 
 from sqlmodel import Field, SQLModel
@@ -17,5 +17,5 @@ class Skill(SQLModel, table=True):
     start: date
     end: date | None = None
     type: SkillType
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
